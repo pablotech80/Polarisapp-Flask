@@ -1,0 +1,25 @@
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entorno virtual
+.venv/
+
+# Configuración de IDEs (PyCharm, VSCode)
+.vscode/
+.idea/
+
+# Archivos de logs
+*.log
+
+# Archivos de base de datos local
+instance/
+db.sqlite3
+
+# Documentación de Sphinx generada
+docs/build/
+
+# Archivos de caché de Git
+*.swp
