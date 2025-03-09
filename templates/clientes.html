@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="mb-3">Listado de Clientes</h2>
+    <a href="{{ url_for('nuevo_cliente') }}" class="btn btn-success mb-3">+ Nuevo Cliente</a>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Código</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>NIF</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.codigo }}</td>
+                <td>{{ cliente.telefono1 }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.nif }}</td>
+                <td>
+                    <a href="{{ url_for('editar_cliente', id=cliente.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="{{ url_for('eliminar_cliente', id=cliente.id) }}" method="POST" style="display:inline;"
+                          onsubmit="return confirm('¿Estás seguro de eliminar este cliente?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

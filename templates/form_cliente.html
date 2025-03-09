@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="mb-3">
+        {% if form.nombre.data %} Editar Cliente {% else %} Nuevo Cliente {% endif %}
+    </h2>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            <label class="form-label">{{ form.nombre.label }}</label>
+            {{ form.nombre(class="form-control", placeholder="Ingrese el nombre") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">{{ form.codigo.label }}</label>
+            {{ form.codigo(class="form-control", placeholder="Código único") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">{{ form.telefono1.label }}</label>
+            {{ form.telefono1(class="form-control", placeholder="Teléfono") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">{{ form.direccion.label }}</label>
+            {{ form.direccion(class="form-control", placeholder="Dirección") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">{{ form.nif.label }}</label>
+            {{ form.nif(class="form-control", placeholder="NIF") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{ url_for('listar_clientes') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+
